@@ -71,4 +71,11 @@ async function CollectionList() {
       </div>
     );
   }
+
+  return (
+    <div>
+      Collections: {collections.length}
+      <CreateCollectionBtn />
+    </div>
+  );
 }
