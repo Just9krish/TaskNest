@@ -19,3 +19,18 @@ export async function createCollection(data: CreateCollectionType) {
     },
   });
 }
+
+export async function deleteCollection(collectionId: number) {
+  const user = await currentUser();
+
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  return await prisma.collection.delete({
+    where: {
+      id: collectionId,
+      userId: user.id,
+    },
+  });
+}
