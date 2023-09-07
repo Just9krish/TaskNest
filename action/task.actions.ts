@@ -26,3 +26,21 @@ export async function createTask(data: CreateTaskInput) {
     },
   });
 }
+
+export async function setTaskComplete(taskId: number) {
+  const user = await currentUser();
+
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  return await prisma.task.update({
+    where: {
+      id: taskId,
+      userId: user.id,
+    },
+    data: {
+      isDone: true,
+    },
+  });
+}

@@ -6,7 +6,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "./ui/collapsible";
-import { useState, useTransition } from "react";
+import { useMemo, useState, useTransition } from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { CollectionColor, CollectionColors } from "@/lib/constant";
@@ -28,6 +28,7 @@ import { deleteCollection } from "@/action/collection.action";
 import { toast } from "./ui/use-toast";
 import { useRouter } from "next/navigation";
 import CreateTaskDialog from "./CreateTaskDialog";
+import TaskCard from "./TaskCard";
 
 interface Props {
   collection: Collection;
@@ -60,7 +61,11 @@ export default function CollectionCard({ collection, tasks }: Props) {
       console.log(error);
     }
   };
-
+  const completedTask = useMemo(() => {
+    return tasks.filter((task) => task.isDone).length;
+  }, [tasks]);
+  const progress =
+    tasks.length === 0 ? 0 : (completedTask / tasks.length) * 100;
   return (
     <>
       <CreateTaskDialog
@@ -110,12 +115,13 @@ export default function CollectionCard({ collection, tasks }: Props) {
           )}
           {tasks.length > 0 && (
             <>
-              <Progress className="rounded-none" value={45} />
+              <Progress className="rounded-none" value={progress} />
               <div className="p-4 gap-3 flex flex-col">
                 {tasks.map((task) => (
-                  <div key={task.id} className="text-neutral-500">
-                    {task.content}
-                  </div>
+                  // <div key={task.id} className="text-neutral-500">
+                  //   {task.content}
+                  // </div>
+                  <TaskCard task={task} />
                 ))}
               </div>
             </>
