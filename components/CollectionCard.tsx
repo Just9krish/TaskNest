@@ -41,8 +41,6 @@ export default function CollectionCard({ collection, tasks }: Props) {
   const [isLoading, startTransition] = useTransition();
   const router = useRouter();
 
-  console.log(tasks);
-
   const removeCollection = async () => {
     try {
       await deleteCollection(collection.id);
@@ -121,7 +119,7 @@ export default function CollectionCard({ collection, tasks }: Props) {
                   // <div key={task.id} className="text-neutral-500">
                   //   {task.content}
                   // </div>
-                  <TaskCard task={task} />
+                  <TaskCard task={task} key={task.id} />
                 ))}
               </div>
             </>
@@ -130,7 +128,7 @@ export default function CollectionCard({ collection, tasks }: Props) {
           <footer className="h-10 p-[2px] px-4 text-neutral-500 flex justify-between items-center">
             <p>Created at {collection.createdAt.toLocaleString("en-us")}</p>
             {isLoading ? (
-              <p>"Deleting..."</p>
+              <p>Deleting...</p>
             ) : (
               <div>
                 <Button
