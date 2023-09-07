@@ -50,8 +50,6 @@ function CreateCollectionSheet({ open, handleClick }: Props) {
   const router = useRouter();
 
   const onSubmit = async (data: CreateCollectionType) => {
-    console.log(data);
-
     try {
       await createCollection(data);
       openChangeWrapper();
