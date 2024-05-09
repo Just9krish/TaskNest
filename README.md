@@ -1,34 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TaskNest
 
-## Getting Started
+TaskNest is a task management application built using Next.js with server actions, Prisma as ORM, GraphQL for database queries, Shadcn for UI component library, and Clerk for authentication.
 
-First, run the development server:
+## Functionality
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- **Collections**: Users can create collections, each of which can contain multiple tasks.
+- **Tasks**: Users can create tasks within collections.
+- **Priority Order**: Tasks can be arranged in priority order.
+- **Mark as Complete**: Users can mark tasks as complete.
+- **Delete Task**: Users can delete tasks.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Next.js
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Next.js is a React framework that enables functionality like server-side rendering, static site generation, and routing.
 
-## Learn More
+### Prisma
 
-To learn more about Next.js, take a look at the following resources:
+Prisma is a modern database toolkit that makes database access easy with type-safe database queries.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### GraphQL
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+GraphQL is a query language for APIs that allows clients to request only the data they need, making it efficient and flexible for fetching data.
 
-## Deploy on Vercel
+### Shadcn
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Shadcn is a UI component library that provides pre-designed components for building user interfaces quickly and efficiently.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Clerk
+
+Clerk is an authentication and user management solution that offers features like passwordless authentication, social logins, and user roles.
